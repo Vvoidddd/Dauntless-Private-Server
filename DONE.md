@@ -5,6 +5,8 @@
 - Recorded exact static Phoenix operation names, EOS SDK families, PlayFab domain clues, authentication strings, and executable offsets.
 - Documented the evidence-backed Unreal flow: matchmaking, party beacon reservation/reconnect, travel, then authoritative replication/RPC.
 - Added an offline, credential-redacting analyzer for authorized HAR and tshark JSON/CSV exports.
+- Recovered the embedded Phoenix travel template and matchmaking result vocabulary.
+- Captured and documented one metadata-only failed-login session, including the redacted Epic exchange-code launch structure and login-stage destinations.
 - Marked old example endpoints and unsupported transport/port/PlayFab claims as speculative.
 - Verified the complete suite: **43 tests passed**.
 

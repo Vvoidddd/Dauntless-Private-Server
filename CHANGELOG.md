@@ -7,6 +7,8 @@
 - Evidence-backed static inventories for Phoenix service operations and the Unreal game-server connection stack, including executable offsets and build hash.
 - Offline HAR/tshark call-map analysis that removes header, cookie, query, and body values while retaining methods, endpoints, statuses, field names, and JSON schemas.
 - Capture-analysis documentation, tests, size bounds, malformed-URL handling, and source-overwrite protection.
+- Metadata-only runtime observer plus a redacted failed-login timeline; the observer now records DNS-cache mappings alongside socket state.
+- Exact embedded Phoenix travel template, matchmaking result fields/states, and beacon admission clues.
 
 ### Corrected
 

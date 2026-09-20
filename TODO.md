@@ -6,8 +6,11 @@
 - [x] Inventory embedded Phoenix operation names, EOS SDK families, auth clues, PlayFab domains, Unreal travel/beacon/replication symbols, and relevant manifest entries.
 - [x] Separate observed strings from inferred behavior and mark invented endpoint/port claims as superseded.
 - [x] Add a redacting offline analyzer for authorized HAR and tshark JSON/CSV exports.
+- [x] Capture one failed-login socket timeline and the redacted Epic exchange-code launch argument structure.
+- [x] Recover the embedded runtime travel template: `host:port?ticket=...?gameSessionId=...?EncryptionToken=...`.
+- [x] Recover Phoenix matchmaking result field names and candidate lifecycle states from the examined executable.
 - [ ] Obtain a normal-launch client log for executable SHA-256 `934325ACECF64E19A01F70F72DCDCEBD68CFB12F11A812CD551C608AC16CEA34` and redact player identifiers/tokens.
-- [ ] Produce a DNS/SNI/socket timeline separating Epic/EOS, Phoenix/PlayFab HTTP, QoS, beacon, and game-session destinations.
+- [ ] Produce a DNS/SNI/socket timeline that maps login-stage addresses to names and separates Epic/EOS, Phoenix/PlayFab HTTP, QoS, beacon, and game-session destinations.
 - [ ] Confirm exact matchmaking request/response methods and schemas from a version-matched authorized capture or call-site analysis.
 - [ ] Confirm the runtime travel URL shape, map/game mode, server/beacon ports, and socket subsystem.
 - [ ] Record the Unreal initial packet/control-message order, build/network compatibility values, close reasons, and admission options.

@@ -9,6 +9,7 @@ __pycache__/
 .pytest_cache/
 .test-tmp/
 .test-tmp-security/
+research/local-captures/
 
 # Editor-local configuration
 .vs/

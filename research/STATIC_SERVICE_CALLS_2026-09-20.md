@@ -86,3 +86,30 @@ The defensible model is: EOS SDK is present for Epic identity/connect/social/ses
 2. Preserve client logs from `%LOCALAPPDATA%` after a normal launch; Unreal logs often expose travel URLs, subsystem selection, request correlation IDs, and failure categories without decrypting traffic.
 3. Build a symbol/cross-reference map around the Phoenix functions and domain strings in a disassembler to recover URL construction, verb selection, and serializer call sites. Keep this read-only and avoid anti-cheat tampering.
 4. Treat each recovered request/response contract as evidence-backed only after a call site, log, or authorized capture confirms fields and ordering.
+
+## Deeper offset-aware pass (2026-09-20)
+
+An additional ASCII and UTF-16LE extraction pass correlated nearby strings without modifying the executable. It recovered concrete Phoenix matchmaking result fields that the earlier broad string inventory missed:
+
+| Offset | Encoding | Evidence |
+|---:|---|---|
+| 105572824 | UTF-16LE | `gameSessionId` |
+| 105572856 | UTF-16LE | `host` |
+| 105572872 | UTF-16LE | `port` |
+| 105572888 | UTF-16LE | `gameArgs` |
+| 105572912 | UTF-16LE | `buildId` |
+| 105572928 | UTF-16LE | `gameMode` |
+| 105572952 | UTF-16LE | `gameType` |
+| 105572976 | ASCII | `regionUrlsPings` |
+| 105573022 | UTF-16LE | `sisPrivate` |
+| 105573048 | UTF-16LE | `privateMatch` |
+| 105573080 | UTF-16LE | `partyId` |
+| 105573096 | UTF-16LE | `hunts` |
+| 105573112 | UTF-16LE | `playerHuntId` |
+| 105573144 | UTF-16LE | `allow_crossplay` |
+
+Immediately before those fields are candidate-state literals `MATCHING`, `MATCHED`, `QUEUED_FOR_START`, `IN_PROGRESS`, `CANCELED`, and `FAILED` (105572680-105572808). A later log format at offset 105597184 is `PhoenixStatusCheckTask CandidateId: %s, GameMode: %s, HasServerInfo: %d, Result.Status: %d`; at 105597376 it reports `GameSessionId: %s Host: %s:%d`. Together, these are direct evidence that Phoenix candidate polling yields runtime server information containing at least a game-session ID, host, and port. They still do not reveal the HTTP route, verb, request body, or authentication headers.
+
+The identity implementation also exposes likely configuration/header vocabulary: `sessiontoken`, `sessionid`, `auth_token`, `tags`, and `isBanned` at offsets 105539360-105539800; and `X-Archon-PlatformId`, `AccountInfoEndpoint`, `CreatePhoenixAccountEndpoint`, `LinkAccountEndpoint`, `IsAccountLinkedEndpoint`, `{service}`, `token`, `SESSIONID`, `AuthTagsEndpoint`, and `IsBannedEndpoint` at offsets 105540864-105541200. These are key/config names, not resolved endpoint values. No literal value for those endpoint keys was recovered from the executable or loose configuration in this pass.
+
+The PlayFab plugin settings are clustered at offsets 105628000-105628240: `bUseDevelopmentEnvironment`, `DevelopmentEnvironmentURL`, `ProductionEnvironmentURL`, `TitleId`, and `/Script/PlayFab`. The nearby domain suffixes remain `.playfabsandbox.com` and `.playfabapi.com`. This establishes configurable host construction but does not disclose the configured title ID or complete production URL.

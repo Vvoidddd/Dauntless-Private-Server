@@ -46,7 +46,19 @@ These names imply a two-stage join flow: control-plane matchmaking/session assig
 
 ### Travel
 
-The client contains absolute, relative, and partial Unreal travel types; city and mission travel operations; seamless-travel state; and the usual invalid URL/package/version failure states. No literal production `ip:port/map?options` travel URL was found in the targeted pass. The actual destination is therefore likely assembled at runtime from matchmaking/session data rather than embedded as a fixed URL.
+The client contains absolute, relative, and partial Unreal travel types; city and mission travel operations; seamless-travel state; and the usual invalid URL/package/version failure states. No fixed production address was found. The actual destination is assembled at runtime from matchmaking/session data rather than embedded as a fixed URL.
+
+### Recovered runtime travel template
+
+A deeper offset-aware pass recovered the exact UTF-16LE connect-string format at decimal file offset 105601408:
+
+```text
+%s:%d?ticket=%s?gameSessionId=%s?EncryptionToken=%s
+```
+
+Nearby strings identify this as the Phoenix online-session `GetResolvedConnectString` path (`invalid session info for session %s in getresolvedconnectstring()` at 105601120 and `Invalid session info in GetResolvedConnectStringInternal()` at 105601520). Separately, the game session client logs `Initiating client travel to session: %s with URL: %s` at 115656592. This is direct evidence that the matchmaking/session layer constructs a runtime Unreal travel destination from host, port, ticket, game-session ID, and encryption token.
+
+The format establishes option names and ordering, but not token formats, issuers, cryptography, concrete host/port, map package, or whether further options are appended. Phoenix matchmaking result vocabulary adjacent in the binary includes `gameSessionId`, `host`, `port`, `gameArgs`, `buildId`, `gameMode`, and `gameType` (105572824-105572968). Candidate polling logs `GameSessionId: %s Host: %s:%d` at 105597376.
 
 ## Handshake and compatibility clues
 
@@ -63,6 +75,10 @@ The executable contains Unreal close/failure reasons including:
 It also contains the Unreal login format string `LOGIN %s %s`, `AArchonGameMode::Login`, `AArchonGameMode::GameWelcomePlayer`, `BuildUniqueId`, `GetMatchmakingBuildId`, and the standard control-channel/player-channel concepts. This strongly indicates that successful admission is more than opening a UDP socket: the client and server must agree on Unreal network compatibility, package/map identity, the control-message sequence, player identity/options, and any enabled encryption/auth handler.
 
 The static pass did not recover an exact network-version integer, compatible changelist, encryption-token schema, packet-handler configuration, or game-specific pre-login option layout. TLS/OpenSSL `handshake` strings in the executable mostly belong to generic bundled HTTP/TLS libraries and must not be confused with the Unreal UDP handshake.
+
+Beacon admission has more concrete generic Unreal evidence. At offsets 103117568-103118080 the sequence is `NMT_Hello`, network-version comparison, encryption-token checks, `NMT_Login`, then a login log with request, user ID, and platform. `AuthTicket=%s` occurs at 103113592, while the login-side key `AuthTicket` occurs at 103118272. Reservation state contains `DestSessionId`, `PendingReservation`, `RequestType`, `Token`, `TokenBytes`, and `ValidationInfo` at 103054016-103054160. These strings establish likely beacon/control-message inputs, but not their binary serialization or game-specific validation rules.
+
+Reservation logs add an observable state model: `RequestReservationUpdate` requires both a connect-info string and session ID (103135920); the host logs session ID, party leader, party size, and remote address when processing reservations (103142944-103143488). No fixed beacon port was recovered; only the configuration key `BeaconPort=` at 103117456.
 
 ## Replication and RPC surface samples
 
