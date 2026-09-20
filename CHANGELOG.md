@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## [Unreleased] - 2026-09-20
+
+### Added
+
+- Optional, disabled-by-default PlayFab identity linking for an operator-owned title using stable opaque Custom IDs and server-only credentials.
+- Authenticated PlayFab status/link endpoints, safe upstream error handling, identity-mismatch protection, and mocked contract tests.
+- Source-backed PlayFab identity, Economy V2, progression, multiplayer, configuration, and deployment research under `docs/`.
+- `.gitignore` and `.env.example`; local game assets, archives, databases, secrets, environments, editor state, bytecode, and test caches are excluded from Git.
+
+### Changed
+
+- Removed previously tracked runtime database and Python bytecode artifacts from version control while retaining local copies.
+- Documented that PlayFab supports owner-controlled infrastructure but does not provide retail Dauntless client compatibility.
+
+### Verified
+
+- Full automated suite: **40 tests passed**.
+
 ## [Unreleased] - 8/30/26 (2026-08-30)
 
 ### Added

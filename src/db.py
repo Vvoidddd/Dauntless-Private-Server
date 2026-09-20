@@ -16,6 +16,14 @@ CREATE TABLE IF NOT EXISTS sessions (
 );
 CREATE INDEX IF NOT EXISTS idx_sessions_account_id ON sessions(account_id);
 CREATE INDEX IF NOT EXISTS idx_sessions_token_hash ON sessions(token_hash);
+CREATE TABLE IF NOT EXISTS playfab_links (
+ account_id TEXT PRIMARY KEY REFERENCES accounts(id) ON DELETE CASCADE,
+ custom_id TEXT NOT NULL UNIQUE,
+ playfab_id TEXT,
+ title_player_account_id TEXT,
+ created_at TEXT NOT NULL,
+ updated_at TEXT NOT NULL
+);
 """
 
 class Database:

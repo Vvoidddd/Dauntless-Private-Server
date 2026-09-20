@@ -1,0 +1,30 @@
+# Local game installation and archive (large, proprietary assets)
+Dauntless/
+Dauntless.rar
+
+# Python environments, bytecode, and test output
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.test-tmp/
+.test-tmp-security/
+
+# Editor-local configuration
+.vs/
+.vscode/
+
+# Runtime state and secrets
+data/*.db
+data/*.db-*
+.env
+.env.*
+!.env.example
+
+# Common local artifacts
+*.log
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/

@@ -16,6 +16,8 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 from src.auth import current_account_id, router as auth_router
 from src.config import Settings, get_settings
 from src.db import Database
+from src.playfab import PlayFabClient
+from src.playfab_routes import router as playfab_router
 
 def error_response(status_code: int, code: str, message: str, details=None) -> JSONResponse:
     error = {"code": code, "message": message}
@@ -35,7 +37,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     app = FastAPI(title=configured.app_name, debug=configured.debug, lifespan=lifespan)
     app.state.settings, app.state.db = configured, db
+    app.state.playfab_client = PlayFabClient.from_settings(configured)
     app.include_router(auth_router)
+    app.include_router(playfab_router)
 
     # Gameplay is optional so the auth foundation remains independently usable.
     try:

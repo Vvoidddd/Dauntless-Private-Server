@@ -1,5 +1,14 @@
 # DONE
 
+## 2026-09-20 - PlayFab Research and Optional Identity Adapter
+
+- Researched current official PlayFab identity, Entity, Economy V2, progression, CloudScript, Multiplayer Servers, GSDK, matchmaking, Lobby, Party, Unreal, quota, and deployment documentation.
+- Added an optional owner-controlled PlayFab identity link that is disabled without server-side environment credentials.
+- Added safe authenticated integration routes, stable opaque account mapping, credential non-disclosure, normalized failure handling, and isolated mocked tests.
+- Added deployment/configuration research and a clean-room multiplayer roadmap under `docs/`.
+- Added repository exclusions and removed generated databases/bytecode from version control.
+- Verified the complete suite: **40 tests passed**.
+
 ## 8/30/26 (2026-08-30) - Local Foundation and Tooling
 
 ### Completed and verified
