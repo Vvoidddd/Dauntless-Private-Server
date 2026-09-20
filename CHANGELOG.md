@@ -1,5 +1,22 @@
 # CHANGELOG
 
+## [Unreleased] - 2026-09-20 (protocol-research pivot)
+
+### Added
+
+- Evidence-backed static inventories for Phoenix service operations and the Unreal game-server connection stack, including executable offsets and build hash.
+- Offline HAR/tshark call-map analysis that removes header, cookie, query, and body values while retaining methods, endpoints, statuses, field names, and JSON schemas.
+- Capture-analysis documentation, tests, size bounds, malformed-URL handling, and source-overwrite protection.
+
+### Corrected
+
+- Marked early invented endpoint lists, fixed-port assumptions, “UDP SYN,” TCP-fallback, and “95% PlayFab” claims as unverified hypotheses.
+- Reframed the target architecture as Phoenix matchmaking followed by Unreal beacon reservation/reconnect, travel, and authoritative replication/RPC.
+
+### Verified
+
+- Full automated suite: **43 tests passed**.
+
 ## [Unreleased] - 2026-09-20
 
 ### Added

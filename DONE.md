@@ -1,5 +1,13 @@
 # DONE
 
+## 2026-09-20 - Dauntless Call and Game-Server Evidence Pivot
+
+- Recorded exact static Phoenix operation names, EOS SDK families, PlayFab domain clues, authentication strings, and executable offsets.
+- Documented the evidence-backed Unreal flow: matchmaking, party beacon reservation/reconnect, travel, then authoritative replication/RPC.
+- Added an offline, credential-redacting analyzer for authorized HAR and tshark JSON/CSV exports.
+- Marked old example endpoints and unsupported transport/port/PlayFab claims as speculative.
+- Verified the complete suite: **43 tests passed**.
+
 ## 2026-09-20 - PlayFab Research and Optional Identity Adapter
 
 - Researched current official PlayFab identity, Entity, Economy V2, progression, CloudScript, Multiplayer Servers, GSDK, matchmaking, Lobby, Party, Unreal, quota, and deployment documentation.

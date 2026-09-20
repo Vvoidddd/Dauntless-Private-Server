@@ -1,5 +1,22 @@
 # TODO
 
+## CURRENT PRIORITY: VERSION-MATCHED PROTOCOL RECONSTRUCTION
+
+- [x] Hash and identify the examined shipping executable.
+- [x] Inventory embedded Phoenix operation names, EOS SDK families, auth clues, PlayFab domains, Unreal travel/beacon/replication symbols, and relevant manifest entries.
+- [x] Separate observed strings from inferred behavior and mark invented endpoint/port claims as superseded.
+- [x] Add a redacting offline analyzer for authorized HAR and tshark JSON/CSV exports.
+- [ ] Obtain a normal-launch client log for executable SHA-256 `934325ACECF64E19A01F70F72DCDCEBD68CFB12F11A812CD551C608AC16CEA34` and redact player identifiers/tokens.
+- [ ] Produce a DNS/SNI/socket timeline separating Epic/EOS, Phoenix/PlayFab HTTP, QoS, beacon, and game-session destinations.
+- [ ] Confirm exact matchmaking request/response methods and schemas from a version-matched authorized capture or call-site analysis.
+- [ ] Confirm the runtime travel URL shape, map/game mode, server/beacon ports, and socket subsystem.
+- [ ] Record the Unreal initial packet/control-message order, build/network compatibility values, close reasons, and admission options.
+- [ ] Recover party reservation/reconnect payload fields and state transitions.
+- [ ] Recover replicated class/property exports and RPC parameter layouts for the smallest joinable city/session slice.
+- [ ] Implement and test only the confirmed control-plane and Unreal-wire contracts.
+
+See `research/STATIC_SERVICE_CALLS_2026-09-20.md`, `research/UNREAL_GAME_SERVER_STATIC_EVIDENCE.md`, and `docs/CAPTURE_ANALYSIS.md`.
+
 ## PHASE 0: CLIENT RESEARCH
 
 ### Phase 0 - Complete

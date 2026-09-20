@@ -1,5 +1,7 @@
 # RESEARCH PHASE SUMMARY
 
+> **Evidence correction (2026-09-20):** This early summary mixes observations with architectural guesses. Fixed ports and generic PlayFab/EOS endpoint examples are not confirmed Dauntless calls. See [`research/STATIC_SERVICE_CALLS_2026-09-20.md`](research/STATIC_SERVICE_CALLS_2026-09-20.md) and [`research/UNREAL_GAME_SERVER_STATIC_EVIDENCE.md`](research/UNREAL_GAME_SERVER_STATIC_EVIDENCE.md) before implementing protocol behavior.
+
 ## Executive Summary
 
 **Status:** ✓ PHASE 0 RESEARCH 70% COMPLETE

@@ -1,5 +1,7 @@
 # NETWORKING RESEARCH
 
+> **Superseded research note (2026-09-20):** Routes such as `/auth/device`, `/matchmaking/find`, the listed `/Client/...` calls, port `7777`, “UDP SYN,” a TCP fallback, and the “95% PlayFab” estimate below were speculative examples—not recovered wire contracts. Current static evidence is documented in [`STATIC_SERVICE_CALLS_2026-09-20.md`](STATIC_SERVICE_CALLS_2026-09-20.md) and [`UNREAL_GAME_SERVER_STATIC_EVIDENCE.md`](UNREAL_GAME_SERVER_STATIC_EVIDENCE.md).
+
 ## Network Communication Overview
 
 Based on binaries and architecture analysis, Dauntless uses a **multi-service networking model**.

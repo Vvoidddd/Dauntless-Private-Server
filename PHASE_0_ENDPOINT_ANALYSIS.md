@@ -1,5 +1,7 @@
 # PHASE 0 - ENDPOINT DISCOVERY ANALYSIS
 
+> **Superseded research note (2026-09-20):** This document contains early hypotheses and example endpoints that were not recovered from the client. Do not implement them as Dauntless contracts. Use [`research/STATIC_SERVICE_CALLS_2026-09-20.md`](research/STATIC_SERVICE_CALLS_2026-09-20.md) and [`research/UNREAL_GAME_SERVER_STATIC_EVIDENCE.md`](research/UNREAL_GAME_SERVER_STATIC_EVIDENCE.md) for the current evidence-backed model.
+
 ## Session Summary
 
 **Date:** 2026-08-16

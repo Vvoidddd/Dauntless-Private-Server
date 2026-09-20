@@ -23,6 +23,10 @@ data/*.db-*
 
 # Common local artifacts
 *.log
+*.har
+*.pcap
+*.pcapng
+call-map*.json
 .coverage
 htmlcov/
 dist/
